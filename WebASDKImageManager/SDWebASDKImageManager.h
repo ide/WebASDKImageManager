@@ -8,6 +8,8 @@
 @property (nonatomic) SDWebImageOptions webImageOptions;
 @property (nonatomic, strong, readonly) SDWebImageManager *webImageManager;
 
++ (instancetype)sharedManager;
+
 - (instancetype)initWithWebImageManager:(SDWebImageManager *)manager NS_DESIGNATED_INITIALIZER;
 
 @end

@@ -13,6 +13,8 @@
 		7865DB0F1A74DE0900539157 /* WebASDKImageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7865DB0E1A74DE0900539157 /* WebASDKImageManagerTests.m */; };
 		7865DB1A1A74DEA300539157 /* SDWebASDKImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7865DB181A74DEA300539157 /* SDWebASDKImageManager.h */; };
 		7865DB1B1A74DEA300539157 /* SDWebASDKImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7865DB191A74DEA300539157 /* SDWebASDKImageManager.m */; };
+		7865DB1E1A75E13000539157 /* ASNetworkImageNode+WebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7865DB1C1A75E13000539157 /* ASNetworkImageNode+WebImage.h */; };
+		7865DB1F1A75E13000539157 /* ASNetworkImageNode+WebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7865DB1D1A75E13000539157 /* ASNetworkImageNode+WebImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		7865DB0E1A74DE0900539157 /* WebASDKImageManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebASDKImageManagerTests.m; sourceTree = "<group>"; };
 		7865DB181A74DEA300539157 /* SDWebASDKImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebASDKImageManager.h; sourceTree = "<group>"; };
 		7865DB191A74DEA300539157 /* SDWebASDKImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebASDKImageManager.m; sourceTree = "<group>"; };
+		7865DB1C1A75E13000539157 /* ASNetworkImageNode+WebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASNetworkImageNode+WebImage.h"; sourceTree = "<group>"; };
+		7865DB1D1A75E13000539157 /* ASNetworkImageNode+WebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASNetworkImageNode+WebImage.m"; sourceTree = "<group>"; };
 		F679DCD13665267C93CEA67B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,9 +94,9 @@
 		7865DAFE1A74DE0900539157 /* WebASDKImageManager */ = {
 			isa = PBXGroup;
 			children = (
-				7865DB011A74DE0900539157 /* WebASDKImageManager.h */,
 				7865DB181A74DEA300539157 /* SDWebASDKImageManager.h */,
 				7865DB191A74DEA300539157 /* SDWebASDKImageManager.m */,
+				7865DB201A75E40800539157 /* Categories */,
 				7865DAFF1A74DE0900539157 /* Supporting Files */,
 			);
 			path = WebASDKImageManager;
@@ -101,6 +105,7 @@
 		7865DAFF1A74DE0900539157 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7865DB011A74DE0900539157 /* WebASDKImageManager.h */,
 				7865DB001A74DE0900539157 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -123,6 +128,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7865DB201A75E40800539157 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7865DB1C1A75E13000539157 /* ASNetworkImageNode+WebImage.h */,
+				7865DB1D1A75E13000539157 /* ASNetworkImageNode+WebImage.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		A33DE529FBB2C6AC3EBBA71D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +153,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7865DB1E1A75E13000539157 /* ASNetworkImageNode+WebImage.h in Headers */,
 				7865DB021A74DE0900539157 /* WebASDKImageManager.h in Headers */,
 				7865DB1A1A74DEA300539157 /* SDWebASDKImageManager.h in Headers */,
 			);
@@ -276,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7865DB1B1A74DEA300539157 /* SDWebASDKImageManager.m in Sources */,
+				7865DB1F1A75E13000539157 /* ASNetworkImageNode+WebImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
