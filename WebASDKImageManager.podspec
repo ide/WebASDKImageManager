@@ -12,8 +12,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
   s.source_files = [
-    'Synchronized/Synchronized.swift',
-    'Synchronized/ObjCSynchronized.{h,m}'
+    'WebASDKImageManager/*.{h,m}'
   ]
   s.dependency 'AsyncDisplayKit', '~> 1.1'
   s.dependency 'SDWebImage', '~> 3.7'

@@ -10,3 +10,10 @@ pod "WebASDKImageManager"
 ```
 
 # Usage
+
+The easiest way to use WebASDKImageManager is an initializer is provides in a category on `ASNetworkImageNode`.
+
+```objc
+ASNetworkImageNode *imageNode = [[ASNetworkImageNode alloc] initWithWebImage];
+imageNode.URL = imageURL;
+```
