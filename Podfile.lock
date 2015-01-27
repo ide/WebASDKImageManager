@@ -2,12 +2,10 @@ PODS:
   - AsyncDisplayKit (1.1.1):
     - AsyncDisplayKit/ASDealloc2MainObject (= 1.1.1)
   - AsyncDisplayKit/ASDealloc2MainObject (1.1.1)
-  - SDWebImage (3.7.1):
-    - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
   - WebASDKImageManager (1.0.0):
     - AsyncDisplayKit (~> 1.1)
-    - SDWebImage (~> 3.7)
+    - SDWebImage/Core (~> 3.7)
 
 DEPENDENCIES:
   - WebASDKImageManager (from `.`)
@@ -19,6 +17,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AsyncDisplayKit: 897b28140c6c73fbe8d6168f19ce7cbd87c94ee8
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  WebASDKImageManager: dfd6546e7ee34a6c3a44b274b28e2d4dc4fadb4a
+  WebASDKImageManager: 03ebea4139ee6b7259fc1223de255ecc582101ff
 
 COCOAPODS: 0.36.0.beta.1
