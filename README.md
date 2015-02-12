@@ -26,3 +26,33 @@ ASNetworkImageNode *imageNode = [[ASNetworkImageNode alloc] initWithWebImage];
 // caches, and download and cache the image if necessary
 imageNode.URL = imageURL;
 ```
+
+## Configuration
+
+By default, image downloading and caching is handled by a shared `WebASDKImageManager` instance. You can get a reference to the shared manager by calling `[SDWebASDKImageManager sharedManager]`. Its `webImageOptions` property is the way to configure the downloading and caching behavior for all ASNetworkImageNode instances that used the shared manager.
+
+```objc
+SDWebASDKImageManager *defaultManager = [SDWebASDKImageManager sharedManager];
+// No longer try to download images that were previously unavailable
+defaultManager.webImageOptions &= ~SDWebImageRetryFailed;
+```
+
+The default options are `SDWebImageRetryFailed` and `SDWebImageContinueInBackground`, which are generally what you want. See SDWebImage's `SDWebImageOptions` enum for all of the supported options.
+
+### Configuring a Single Image Node
+
+Sometimes you may want to configure an image node differently than the default. You can do this by creating a new `WebASDKImageManager` that is configured to meet your needs.
+
+```objc
+SDWebImageManager *webImageManager = [SDWebImageManager sharedManager];
+SDWebASDKImageManager *asyncImageManager =
+  [[SDWebASDKImageManager alloc] initWithWebImageManager:webImageManager];
+asyncImageManager.webImageOptions = SDWebImageRetryFailed | SDWebImageCacheMemoryOnly;
+```
+
+`WebASDKImageManager` conforms to `ASImageDownloaderProtocol` and `ASImageCacheProtocol`, so you can use your new manager to create a new image node.
+
+```objc
+ASNetworkImageNode *imageNode = [[ASNetworkImageNode alloc] initWithCache:asyncImageManager 
+                                                               downloader:asyncImageManager];
+```
