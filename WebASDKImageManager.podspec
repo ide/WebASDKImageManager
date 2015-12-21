@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source_files = [
     'WebASDKImageManager/*.{h,m}'
   ]
-  s.dependency 'AsyncDisplayKit', '~> 1.1'
+  s.dependency 'AsyncDisplayKit', '~> 1.9'
   s.dependency 'SDWebImage/Core', '~> 3.7'
 end
