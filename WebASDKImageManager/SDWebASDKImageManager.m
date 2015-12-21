@@ -19,6 +19,11 @@
     return instance;
 }
 
+- (instancetype)init
+{
+    return [self initWithWebImageManager:[SDWebImageManager sharedManager]];
+}
+
 - (instancetype)initWithWebImageManager:(SDWebImageManager *)manager
 {
     if (self = [super init]) {
