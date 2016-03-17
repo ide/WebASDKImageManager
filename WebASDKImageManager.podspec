@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "WebASDKImageManager"
-  s.version          = "1.0.1"
+  s.version          = "1.1.0"
   s.summary          = "Image downloader and cache for AsyncDisplayKit that uses SDWebImage"
   s.description      = <<-DESC
     An image downloader and cache for AsyncDisplayKit that uses SDWebImage. The image manager conforms to ASImageDownloaderProtocol and ASImageCacheProtocol.
