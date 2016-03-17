@@ -37,6 +37,8 @@ SDWebASDKImageManager *defaultManager = [SDWebASDKImageManager sharedManager];
 defaultManager.webImageOptions &= ~SDWebImageRetryFailed;
 ```
 
+### Defaults
+
 The default options are `SDWebImageRetryFailed` and `SDWebImageContinueInBackground`, which are generally what you want. See SDWebImage's `SDWebImageOptions` enum for all of the supported options.
 
 ### Configuring a Single Image Node
