@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05FBFD8E8441D081FAD05404 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AB521F835052900A31BAAC /* libPods.a */; };
+		52A82F4188CE4C612E91BC25 /* libPods-WebASDKImageManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0800E97C38F4CBD369BB8E29 /* libPods-WebASDKImageManager.a */; };
 		7865DB021A74DE0900539157 /* WebASDKImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7865DB011A74DE0900539157 /* WebASDKImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7865DB081A74DE0900539157 /* WebASDKImageManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7865DAFC1A74DE0900539157 /* WebASDKImageManager.framework */; };
 		7865DB0F1A74DE0900539157 /* WebASDKImageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7865DB0E1A74DE0900539157 /* WebASDKImageManagerTests.m */; };
@@ -28,7 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0800E97C38F4CBD369BB8E29 /* libPods-WebASDKImageManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebASDKImageManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E4BF92A73001C5182B4C2D0 /* Pods-WebASDKImageManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebASDKImageManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebASDKImageManager/Pods-WebASDKImageManager.release.xcconfig"; sourceTree = "<group>"; };
 		63AB521F835052900A31BAAC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		68D9CDA7EDBAB83630BEA6CF /* Pods-WebASDKImageManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebASDKImageManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebASDKImageManager/Pods-WebASDKImageManager.debug.xcconfig"; sourceTree = "<group>"; };
 		6EBB1F0D6A0703EF79383EC5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7865DAFC1A74DE0900539157 /* WebASDKImageManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebASDKImageManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7865DB001A74DE0900539157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05FBFD8E8441D081FAD05404 /* libPods.a in Frameworks */,
+				52A82F4188CE4C612E91BC25 /* libPods-WebASDKImageManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				63AB521F835052900A31BAAC /* libPods.a */,
+				0800E97C38F4CBD369BB8E29 /* libPods-WebASDKImageManager.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,6 +148,8 @@
 			children = (
 				6EBB1F0D6A0703EF79383EC5 /* Pods.debug.xcconfig */,
 				F679DCD13665267C93CEA67B /* Pods.release.xcconfig */,
+				68D9CDA7EDBAB83630BEA6CF /* Pods-WebASDKImageManager.debug.xcconfig */,
+				4E4BF92A73001C5182B4C2D0 /* Pods-WebASDKImageManager.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -166,12 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7865DB121A74DE0900539157 /* Build configuration list for PBXNativeTarget "WebASDKImageManager" */;
 			buildPhases = (
-				AAFEFBD9E41E22CA2D426CAC /* Check Pods Manifest.lock */,
+				AAFEFBD9E41E22CA2D426CAC /* 📦 Check Pods Manifest.lock */,
 				7865DAF71A74DE0900539157 /* Sources */,
 				7865DAF81A74DE0900539157 /* Frameworks */,
 				7865DAF91A74DE0900539157 /* Headers */,
 				7865DAFA1A74DE0900539157 /* Resources */,
-				0923E55762B5FC69F86BA109 /* Copy Pods Resources */,
+				0923E55762B5FC69F86BA109 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,29 +261,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0923E55762B5FC69F86BA109 /* Copy Pods Resources */ = {
+		0923E55762B5FC69F86BA109 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebASDKImageManager/Pods-WebASDKImageManager-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AAFEFBD9E41E22CA2D426CAC /* Check Pods Manifest.lock */ = {
+		AAFEFBD9E41E22CA2D426CAC /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,7 +409,7 @@
 		};
 		7865DB131A74DE0900539157 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EBB1F0D6A0703EF79383EC5 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 68D9CDA7EDBAB83630BEA6CF /* Pods-WebASDKImageManager.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -418,7 +426,7 @@
 		};
 		7865DB141A74DE0900539157 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F679DCD13665267C93CEA67B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 4E4BF92A73001C5182B4C2D0 /* Pods-WebASDKImageManager.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
