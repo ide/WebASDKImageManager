@@ -4,6 +4,12 @@
 [![License](https://img.shields.io/cocoapods/l/WebASDKImageManager.svg?style=flat)](http://cocoadocs.org/docsets/WebASDKImageManager)
 [![Platform](https://img.shields.io/cocoapods/p/WebASDKImageManager.svg?style=flat)](http://cocoadocs.org/docsets/WebASDKImageManager)
 
+# Notice
+
+[AsyncDisplayKit](https://github.com/facebook/AsyncDisplayKit) now uses Pinterest's PINRemoteImage and PINCache if you include them as dependencies. They provide the functionality that WebASDKImageManager originally set to provide and manage memory more efficiently because they work more tightly with AsyncDisplayKit. Unless you specifically wish to use SDWebImage, you should use AsyncDisplayKit's default functionality.
+
+---
+
 An image downloader and cache for [AsyncDisplayKit](https://github.com/facebook/AsyncDisplayKit) that uses [SDWebImage](https://github.com/rs/SDWebImage). This is an implementation of `ASImageDownloaderProtocol` and `ASImageCacheProtocol` that is compatible with `ASNetworkImageNode`.
 
 By default, `ASNetworkImageNode` does not cache images and does not coalesce network requests for the same image. SDWebImage does both of these. With WebASDKImageManager, you get the image downloading and caching optimizations of SDWebImage and the asynchronous layout and layer precompositing features of ASDK.
