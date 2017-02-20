@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		05FBFD8E8441D081FAD05404 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AB521F835052900A31BAAC /* libPods.a */; };
 		52A82F4188CE4C612E91BC25 /* libPods-WebASDKImageManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0800E97C38F4CBD369BB8E29 /* libPods-WebASDKImageManager.a */; };
+		76F75C1F1E5AF41E00EBE050 /* SDWebASDKImageContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F75C1D1E5AF41E00EBE050 /* SDWebASDKImageContainer.h */; };
+		76F75C201E5AF41E00EBE050 /* SDWebASDKImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F75C1E1E5AF41E00EBE050 /* SDWebASDKImageContainer.m */; };
+		76F75C221E5AF78000EBE050 /* SDWebASDKImageManagerOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F75C211E5AF77900EBE050 /* SDWebASDKImageManagerOptions.h */; };
 		7865DB021A74DE0900539157 /* WebASDKImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7865DB011A74DE0900539157 /* WebASDKImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7865DB081A74DE0900539157 /* WebASDKImageManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7865DAFC1A74DE0900539157 /* WebASDKImageManager.framework */; };
 		7865DB0F1A74DE0900539157 /* WebASDKImageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7865DB0E1A74DE0900539157 /* WebASDKImageManagerTests.m */; };
@@ -34,6 +37,9 @@
 		63AB521F835052900A31BAAC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D9CDA7EDBAB83630BEA6CF /* Pods-WebASDKImageManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebASDKImageManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebASDKImageManager/Pods-WebASDKImageManager.debug.xcconfig"; sourceTree = "<group>"; };
 		6EBB1F0D6A0703EF79383EC5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		76F75C1D1E5AF41E00EBE050 /* SDWebASDKImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebASDKImageContainer.h; sourceTree = "<group>"; };
+		76F75C1E1E5AF41E00EBE050 /* SDWebASDKImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebASDKImageContainer.m; sourceTree = "<group>"; };
+		76F75C211E5AF77900EBE050 /* SDWebASDKImageManagerOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDWebASDKImageManagerOptions.h; sourceTree = "<group>"; };
 		7865DAFC1A74DE0900539157 /* WebASDKImageManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebASDKImageManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7865DB001A74DE0900539157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7865DB011A74DE0900539157 /* WebASDKImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebASDKImageManager.h; sourceTree = "<group>"; };
@@ -102,6 +108,9 @@
 			children = (
 				7865DB181A74DEA300539157 /* SDWebASDKImageManager.h */,
 				7865DB191A74DEA300539157 /* SDWebASDKImageManager.m */,
+				76F75C1D1E5AF41E00EBE050 /* SDWebASDKImageContainer.h */,
+				76F75C1E1E5AF41E00EBE050 /* SDWebASDKImageContainer.m */,
+				76F75C211E5AF77900EBE050 /* SDWebASDKImageManagerOptions.h */,
 				7865DB201A75E40800539157 /* Categories */,
 				7865DAFF1A74DE0900539157 /* Supporting Files */,
 			);
@@ -162,8 +171,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7865DB1E1A75E13000539157 /* ASNetworkImageNode+WebImage.h in Headers */,
+				76F75C1F1E5AF41E00EBE050 /* SDWebASDKImageContainer.h in Headers */,
 				7865DB021A74DE0900539157 /* WebASDKImageManager.h in Headers */,
 				7865DB1A1A74DEA300539157 /* SDWebASDKImageManager.h in Headers */,
+				76F75C221E5AF78000EBE050 /* SDWebASDKImageManagerOptions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,12 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7865DB121A74DE0900539157 /* Build configuration list for PBXNativeTarget "WebASDKImageManager" */;
 			buildPhases = (
-				AAFEFBD9E41E22CA2D426CAC /* 📦 Check Pods Manifest.lock */,
+				AAFEFBD9E41E22CA2D426CAC /* [CP] Check Pods Manifest.lock */,
 				7865DAF71A74DE0900539157 /* Sources */,
 				7865DAF81A74DE0900539157 /* Frameworks */,
 				7865DAF91A74DE0900539157 /* Headers */,
 				7865DAFA1A74DE0900539157 /* Resources */,
-				0923E55762B5FC69F86BA109 /* 📦 Copy Pods Resources */,
+				0923E55762B5FC69F86BA109 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,14 +272,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0923E55762B5FC69F86BA109 /* 📦 Copy Pods Resources */ = {
+		0923E55762B5FC69F86BA109 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,19 +287,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebASDKImageManager/Pods-WebASDKImageManager-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AAFEFBD9E41E22CA2D426CAC /* 📦 Check Pods Manifest.lock */ = {
+		AAFEFBD9E41E22CA2D426CAC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -299,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7865DB1B1A74DEA300539157 /* SDWebASDKImageManager.m in Sources */,
+				76F75C201E5AF41E00EBE050 /* SDWebASDKImageContainer.m in Sources */,
 				7865DB1F1A75E13000539157 /* ASNetworkImageNode+WebImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

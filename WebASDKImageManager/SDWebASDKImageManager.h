@@ -2,11 +2,13 @@
 
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 #import <SDWebImage/SDWebImageManager.h>
+#import "SDWebASDKImageManagerOptions.h"
 
 @interface SDWebASDKImageManager : NSObject <ASImageCacheProtocol, ASImageDownloaderProtocol>
 
-@property (nonatomic) SDWebImageOptions webImageOptions;
+@property (nonatomic, assign) SDWebImageOptions webImageOptions;
 @property (nonatomic, strong, readonly) SDWebImageManager *webImageManager;
+@property (nonatomic, assign) SDWebASDKImageManagerOptions imageManagerOptions;
 
 + (instancetype)sharedManager;
 

@@ -4,6 +4,7 @@
 
 #import <SDWebImage/SDImageCache.h>
 #import <SDWebImage/SDWebImageManager.h>
+#import "SDWebASDKImageContainer.h"
 
 @implementation SDWebASDKImageManager
 
@@ -14,6 +15,7 @@
     dispatch_once(&onceToken, ^{
         SDWebImageManager *webImageManager = [SDWebImageManager sharedManager];
         instance = [[self alloc] initWithWebImageManager:webImageManager];
+        instance.imageManagerOptions = 0;
         instance.webImageOptions = SDWebImageRetryFailed | SDWebImageContinueInBackground;
     });
     return instance;
@@ -34,33 +36,55 @@
 
 #pragma mark - ASImageCacheProtocol
 
-- (void)fetchCachedImageWithURL:(NSURL *)URL callbackQueue:(dispatch_queue_t)callbackQueue completion:(void (^)(CGImageRef imageFromCache))completion
+- (void)cachedImageWithURL:(NSURL *)URL callbackQueue:(dispatch_queue_t)callbackQueue completion:(ASImageCacherCompletion)completion
 {
     if (!URL) {
         completion(nil);
         return;
     }
-
+    
     NSString *cacheKey = [self.webImageManager cacheKeyForURL:URL];
     [self.webImageManager.imageCache queryDiskCacheForKey:cacheKey done:^(UIImage *image, SDImageCacheType cacheType) {
         dispatch_async(callbackQueue ?: dispatch_get_main_queue(), ^{
-            completion(image.CGImage);
+            completion([SDWebASDKImageContainer containerForImage:image]);
         });
     }];
 }
 
+- (id<ASImageContainerProtocol>)synchronouslyFetchedCachedImageWithURL:(NSURL *)URL
+{
+    if (!URL) {
+        return nil;
+    }
+    NSString* cacheKey = [self.webImageManager cacheKeyForURL:URL];
+    return [SDWebASDKImageContainer containerForImage:[self.webImageManager.imageCache imageFromMemoryCacheForKey:cacheKey]];
+}
+
+- (void)clearFetchedImageFromCacheWithURL:(NSURL *)URL
+{
+    if ((self.imageManagerOptions & SDWebASDKImageManagerIgnoreClearMemory) || !URL) {
+        return;
+    }
+    NSString* cacheKey = [self.webImageManager cacheKeyForURL:URL];
+    [self.webImageManager.imageCache removeImageForKey:cacheKey fromDisk:NO withCompletion:nil];
+}
+
 #pragma mark - ASImageDownloaderProtocol
 
-- (id)downloadImageWithURL:(NSURL *)URL callbackQueue:(dispatch_queue_t)callbackQueue downloadProgressBlock:(void (^)(CGFloat progress))downloadProgressBlock completion:(void (^)(CGImageRef image, NSError *error))completion
+- (nullable id)downloadImageWithURL:(NSURL *)URL
+                      callbackQueue:(dispatch_queue_t)callbackQueue
+                   downloadProgress:(nullable ASImageDownloaderProgress)downloadProgressBlock
+                         completion:(ASImageDownloaderCompletion)completion
 {
     if (!URL) {
         NSString *domain = [NSBundle bundleForClass:[self class]].bundleIdentifier;
         NSString *description = @"The URL of the image to download is unspecified";
-        completion(nil, [NSError errorWithDomain:domain code:0 userInfo:@{NSLocalizedDescriptionKey: description}]);
+        completion(nil, [NSError errorWithDomain:domain code:0 userInfo:@{NSLocalizedDescriptionKey: description}], nil);
         return nil;
     }
-
-    return [self.webImageManager downloadImageWithURL:URL options:self.webImageOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    
+    __weak id<SDWebImageOperation> weakOperation = nil;
+    id<SDWebImageOperation> operation =  [self.webImageManager downloadImageWithURL:URL options:self.webImageOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         if (downloadProgressBlock) {
             dispatch_async(callbackQueue ?: dispatch_get_main_queue(), ^{
                 downloadProgressBlock((CGFloat)receivedSize / expectedSize);
@@ -70,11 +94,13 @@
         if (!finished) {
             return;
         }
-
+        
         dispatch_async(callbackQueue ?: dispatch_get_main_queue(), ^{
-            completion(image.CGImage, error);
+            completion([SDWebASDKImageContainer containerForImage:image], error, weakOperation);
         });
     }];
+    weakOperation = operation;
+    return operation;
 }
 
 - (void)cancelImageDownloadForIdentifier:(id)downloadIdentifier
