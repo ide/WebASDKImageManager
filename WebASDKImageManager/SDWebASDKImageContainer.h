@@ -12,9 +12,9 @@
 
 @interface SDWebASDKImageContainer : NSObject <ASImageContainerProtocol>
 
-@property (nonatomic, strong) UIImage* image;
+@property (nonatomic, strong) UIImage *image;
 
-- (instancetype)initWithImage:(UIImage*)image;
-+ (instancetype)containerForImage:(UIImage*)image;
+- (instancetype)initWithImage:(UIImage *)image;
++ (instancetype)containerForImage:(UIImage *)image;
 
 @end

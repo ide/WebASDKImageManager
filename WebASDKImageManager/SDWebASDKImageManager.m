@@ -42,7 +42,7 @@
         completion(nil);
         return;
     }
-    
+
     NSString *cacheKey = [self.webImageManager cacheKeyForURL:URL];
     [self.webImageManager.imageCache queryDiskCacheForKey:cacheKey done:^(UIImage *image, SDImageCacheType cacheType) {
         dispatch_async(callbackQueue ?: dispatch_get_main_queue(), ^{
@@ -82,9 +82,9 @@
         completion(nil, [NSError errorWithDomain:domain code:0 userInfo:@{NSLocalizedDescriptionKey: description}], nil);
         return nil;
     }
-    
+
     __weak id<SDWebImageOperation> weakOperation = nil;
-    id<SDWebImageOperation> operation =  [self.webImageManager downloadImageWithURL:URL options:self.webImageOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    id<SDWebImageOperation> operation = [self.webImageManager downloadImageWithURL:URL options:self.webImageOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         if (downloadProgressBlock) {
             dispatch_async(callbackQueue ?: dispatch_get_main_queue(), ^{
                 downloadProgressBlock((CGFloat)receivedSize / expectedSize);
@@ -94,7 +94,7 @@
         if (!finished) {
             return;
         }
-        
+
         dispatch_async(callbackQueue ?: dispatch_get_main_queue(), ^{
             completion([SDWebASDKImageContainer containerForImage:image], error, weakOperation);
         });
