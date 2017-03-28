@@ -44,7 +44,7 @@
     }
 
     NSString *cacheKey = [self.webImageManager cacheKeyForURL:URL];
-    [self.webImageManager.imageCache queryDiskCacheForKey:cacheKey done:^(UIImage *image, SDImageCacheType cacheType) {
+    [self.webImageManager.imageCache queryCacheOperationForKey:cacheKey done:^(UIImage * _Nullable image, NSData * _Nullable data, SDImageCacheType cacheType) {
         dispatch_async(callbackQueue ?: dispatch_get_main_queue(), ^{
             completion([SDWebASDKImageContainer containerForImage:image]);
         });
@@ -84,17 +84,17 @@
     }
 
     __weak id<SDWebImageOperation> weakOperation = nil;
-    id<SDWebImageOperation> operation = [self.webImageManager downloadImageWithURL:URL options:self.webImageOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    id<SDWebImageOperation> operation = [self.webImageManager loadImageWithURL:URL options:self.webImageOptions progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         if (downloadProgressBlock) {
             dispatch_async(callbackQueue ?: dispatch_get_main_queue(), ^{
                 downloadProgressBlock((CGFloat)receivedSize / expectedSize);
             });
         }
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         if (!finished) {
             return;
         }
-
+        
         dispatch_async(callbackQueue ?: dispatch_get_main_queue(), ^{
             completion([SDWebASDKImageContainer containerForImage:image], error, weakOperation);
         });
