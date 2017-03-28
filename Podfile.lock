@@ -1,7 +1,7 @@
 PODS:
   - AsyncDisplayKit/Core (2.2)
   - SDWebImage/Core (4.0.0)
-  - WebASDKImageManager (2.0.0):
+  - WebASDKImageManager (3.0.0):
     - AsyncDisplayKit/Core (~> 2.0)
     - SDWebImage/Core (~> 4.0)
 
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AsyncDisplayKit: 1585f6cd0531ae9b30476f5912f577b73ebcb0e4
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  WebASDKImageManager: 95399a1a17d30cea21abca182b7c232952144d4c
+  WebASDKImageManager: f4d85fde2ce50e97ad697a65d0e41ca5756cb292
 
 PODFILE CHECKSUM: 7b34a654865002f9dd598539b1b1c3d7df04a62e
 
